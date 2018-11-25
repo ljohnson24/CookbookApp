@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cookbook.Core.Models;
+using Cookbook.Core.ViewModels;
 using Cookbook.DataAccess.InMemory;
 
 namespace Cookbook.WebUI.Controllers
@@ -11,11 +12,13 @@ namespace Cookbook.WebUI.Controllers
     public class RecipeManagerController : Controller
     {
         RecipeRepository context;//for inmemory transactions
+        RecipeCategoryRepository recipeCategories;
 
         //constructor
         public RecipeManagerController()
         {
             context = new RecipeRepository();//initializes inmemory context
+            recipeCategories = new RecipeCategoryRepository();
         }
 
         // GET: RecipeManager
@@ -27,8 +30,9 @@ namespace Cookbook.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Recipe recipe = new Recipe();
-            return View(recipe);
+            RecipeManagerViewModel viewModel = new RecipeManagerViewModel();
+            viewModel.recipeCategories = recipeCategories.Collection();
+            return View(viewModel);
         }
 
         //creates recipe
@@ -59,7 +63,10 @@ namespace Cookbook.WebUI.Controllers
             }
             else
             {
-                return View(recipe);//return recipe
+                RecipeManagerViewModel viewModel = new RecipeManagerViewModel();
+                viewModel.recipe = recipe;
+                viewModel.recipeCategories = recipeCategories.Collection();
+                return View(viewModel);//return recipe
             }
         }
 
