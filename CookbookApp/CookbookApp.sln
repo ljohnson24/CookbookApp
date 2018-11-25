@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.Domain", "Cookbook.Core\Cookbook.Domain.csproj", "{9C99C4C5-5B5D-4DF7-873A-AA1E2B1F618C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.Core", "Cookbook.Core\Cookbook.Core.csproj", "{9C99C4C5-5B5D-4DF7-873A-AA1E2B1F618C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.Services", "Cookbook.Services\Cookbook.Services.csproj", "{3457571F-138E-430E-92B1-53A69ADCCD33}"
 EndProject
