@@ -1,4 +1,5 @@
 ﻿using Cookbook.Core;
+using Cookbook.Core.Contracts;
 using Cookbook.Core.Models;
 using Cookbook.DataAccess.InMemory;
 using System;
@@ -11,12 +12,12 @@ namespace Cookbook.WebUI.Controllers
 {
     public class RecipeCategoryManagerController : Controller
     {
-        InMemoryRepository<RecipeCategory> context;//for inmemory transactions
+        IRepository<RecipeCategory> context;//for inmemory transactions
         
         //constructor
-        public RecipeCategoryManagerController()
+        public RecipeCategoryManagerController(IRepository<RecipeCategory> context)
         {
-            context = new InMemoryRepository<RecipeCategory>();//initializes inmemory context
+            this.context = context;//initializes inmemory context
         }
 
         // GET: RecipeCategoryManager
