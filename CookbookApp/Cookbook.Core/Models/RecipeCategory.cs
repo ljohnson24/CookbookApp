@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cookbook.Core.Models
 {
-    public class RecipeCategory
+    public class RecipeCategory:BaseEntity
     {
-        public string Id { get; set; }
         public string Category { get; set; }
-
-        public RecipeCategory()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }
