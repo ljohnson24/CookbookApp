@@ -1,6 +1,7 @@
 using Cookbook.Core.Contracts;
 using Cookbook.Core.Models;
 using Cookbook.DataAccess.InMemory;
+using Cookbook.DataAccess.SQL;
 using System;
 
 using Unity;
@@ -45,8 +46,8 @@ namespace Cookbook.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IRepository<Recipe>, InMemoryRepository<Recipe>>();
-            container.RegisterType<IRepository<RecipeCategory>, InMemoryRepository<RecipeCategory>>();
+            container.RegisterType<IRepository<Recipe>, SQLRepository<Recipe>>();
+            container.RegisterType<IRepository<RecipeCategory>, SQLRepository<RecipeCategory>>();
         }
     }
 }

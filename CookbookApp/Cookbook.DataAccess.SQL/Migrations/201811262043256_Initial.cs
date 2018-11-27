@@ -13,7 +13,6 @@ namespace Cookbook.DataAccess.SQL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(maxLength: 20),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Description = c.String(),
                         Category = c.String(),
                         Image = c.String(),
