@@ -283,6 +283,7 @@
     <Content Include="Views\RecipeCategoryManager\Create.cshtml" />
     <Content Include="Views\RecipeCategoryManager\Delete.cshtml" />
     <Content Include="Views\RecipeCategoryManager\Edit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.DataAccess.InMemor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.WebUI", "Cookbook.WebUI\Cookbook.WebUI.csproj", "{50824BB8-7534-423C-BECA-E2DBB782E936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.WebUI.Tests", "Cookbook.WebUI.Tests\Cookbook.WebUI.Tests.csproj", "{B9CC9EEA-4840-42EE-A7C1-7210D06649A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9CC9EEA-4840-42EE-A7C1-7210D06649A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9CC9EEA-4840-42EE-A7C1-7210D06649A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9CC9EEA-4840-42EE-A7C1-7210D06649A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9CC9EEA-4840-42EE-A7C1-7210D06649A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

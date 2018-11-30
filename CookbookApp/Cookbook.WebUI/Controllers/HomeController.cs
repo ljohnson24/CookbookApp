@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cookbook.Core.Contracts;
+using Cookbook.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,33 @@ namespace Cookbook.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        IRepository<Recipe> context;//for inmemory transactions
+        IRepository<RecipeCategory> recipeCategories;
+
+        //constructor
+        public HomeController(IRepository<Recipe> recipeContext, IRepository<RecipeCategory> recipeCategoryContext)
+        {
+            context = recipeContext;//initializes inmemory context
+            recipeCategories = recipeCategoryContext;
+        }
         public ActionResult Index()
         {
-            return View();
+            List<Recipe> recipe = context.Collection().ToList();
+
+            return View(recipe);
+        }
+
+        public ActionResult Details(string Id)
+        {
+            Recipe recipe = context.Find(Id);
+            if(recipe == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(recipe);
+            }
         }
 
         public ActionResult About()
