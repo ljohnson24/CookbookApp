@@ -16,12 +16,14 @@ namespace Cookbook.WebUI.Controllers
     {
         IRepository<Recipe> context;//for inmemory transactions
         IRepository<RecipeCategory> recipeCategories;
+        IRepository<IngredientType> ingredientTypes;
 
         //constructor
-        public RecipeManagerController(IRepository<Recipe> recipeContext, IRepository<RecipeCategory> recipeCategoryContext)
+        public RecipeManagerController(IRepository<Recipe> recipeContext, IRepository<RecipeCategory> recipeCategoryContext, IRepository<IngredientType> ingredientTypeContext) 
         {
             context = recipeContext;//initializes inmemory context
             recipeCategories = recipeCategoryContext;
+            ingredientTypes = ingredientTypeContext;
         }
 
         // GET: RecipeManager
@@ -35,6 +37,7 @@ namespace Cookbook.WebUI.Controllers
         {
             RecipeManagerViewModel viewModel = new RecipeManagerViewModel();
             viewModel.recipeCategories = recipeCategories.Collection();
+            viewModel.ingredientTypes = ingredientTypes.Collection();
             return View(viewModel);
         }
 
@@ -74,6 +77,7 @@ namespace Cookbook.WebUI.Controllers
                 RecipeManagerViewModel viewModel = new RecipeManagerViewModel();
                 viewModel.recipe = recipe;
                 viewModel.recipeCategories = recipeCategories.Collection();
+                viewModel.ingredientTypes = ingredientTypes.Collection();
                 return View(viewModel);//return recipe
             }
         }
@@ -101,7 +105,22 @@ namespace Cookbook.WebUI.Controllers
                 }
                 recipeToEdit.Category = recipe.Category;
                 recipeToEdit.Description = recipe.Description;
-                recipeToEdit.Name = recipe.Name;
+                recipeToEdit.ServingSize = recipe.ServingSize;
+                recipeToEdit.Calories = recipe.Calories;
+
+                recipeToEdit.instruction1 = recipe.instruction1; recipeToEdit.instruction6 = recipe.instruction6;
+                recipeToEdit.instruction2 = recipe.instruction2; recipeToEdit.instruction7 = recipe.instruction7;
+                recipeToEdit.instruction3 = recipe.instruction3; recipeToEdit.instruction8 = recipe.instruction8;
+                recipeToEdit.instruction4 = recipe.instruction4; recipeToEdit.instruction9 = recipe.instruction9;
+                recipeToEdit.instruction5 = recipe.instruction5; recipeToEdit.instruction10 = recipe.instruction10;
+
+                recipeToEdit.ingredient1 = recipe.ingredient1; recipeToEdit.ingredient6 = recipe.ingredient6;
+                recipeToEdit.ingredient2 = recipe.ingredient2; recipeToEdit.ingredient7 = recipe.ingredient7;
+                recipeToEdit.ingredient3 = recipe.ingredient3; recipeToEdit.ingredient8 = recipe.ingredient8;
+                recipeToEdit.ingredient4 = recipe.ingredient4; recipeToEdit.ingredient9 = recipe.ingredient9;
+                recipeToEdit.ingredient5 = recipe.ingredient5; recipeToEdit.ingredient10 = recipe.ingredient10;
+
+
                 //recipeToEdit.Price = recipe.Price;
 
                 context.Commit();

@@ -48,6 +48,7 @@ namespace Cookbook.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Recipe>, SQLRepository<Recipe>>();
             container.RegisterType<IRepository<RecipeCategory>, SQLRepository<RecipeCategory>>();
+            container.RegisterType<IRepository<IngredientType>, SQLRepository<IngredientType>>();
         }
     }
 }
