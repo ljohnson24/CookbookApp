@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,7 +40,7 @@ namespace Cookbook.WebUI.Controllers
 
         //creates recipe
         [HttpPost]
-        public ActionResult Create(Recipe recipe)
+        public ActionResult Create(Recipe recipe, HttpPostedFileBase file)
         {
             //check if data validation passed
             if (!ModelState.IsValid)
@@ -48,6 +49,11 @@ namespace Cookbook.WebUI.Controllers
             }
             else
             {
+                if(file != null)//check if file exist
+                {
+                    recipe.Image = recipe.Id + Path.GetExtension(file.FileName);//sets recipe image to prefix(recipeid) plus file name ext
+                    file.SaveAs(Server.MapPath("//Content/RecipeImages//")+recipe.Image);//saves the photo to the disk
+                }
                 context.Insert(recipe); //adds the recipe
                 context.Commit(); //saves changes to cache memory
 
@@ -73,7 +79,7 @@ namespace Cookbook.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Recipe recipe, string Id)
+        public ActionResult Edit(Recipe recipe, string Id, HttpPostedFileBase file)
         {
             Recipe recipeToEdit = context.Find(Id);
 
@@ -88,9 +94,13 @@ namespace Cookbook.WebUI.Controllers
                     return View(recipe);//reload page
                 }
 
+                if (file != null)//check if file exist
+                {
+                    recipeToEdit.Image = recipe.Id + Path.GetExtension(file.FileName);//sets recipe image to prefix(recipeid) plus file name ext
+                    file.SaveAs(Server.MapPath("//Content/RecipeImages//") + recipeToEdit.Image);//saves the photo to the disk
+                }
                 recipeToEdit.Category = recipe.Category;
                 recipeToEdit.Description = recipe.Description;
-                recipeToEdit.Image = recipe.Image;
                 recipeToEdit.Name = recipe.Name;
                 //recipeToEdit.Price = recipe.Price;
 
