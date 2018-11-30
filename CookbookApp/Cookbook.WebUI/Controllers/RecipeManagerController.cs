@@ -93,6 +93,7 @@ namespace Cookbook.WebUI.Controllers
                 recipeToEdit.Image = recipe.Image;
                 recipeToEdit.Name = recipe.Name;
                 //recipeToEdit.Price = recipe.Price;
+                //recipeToEdit.Instructions = recipe.Instructions;
 
                 context.Commit();
                 return RedirectToAction("Index");
