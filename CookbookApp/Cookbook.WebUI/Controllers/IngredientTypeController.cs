@@ -104,9 +104,9 @@ namespace Cookbook.WebUI.Controllers
         [ActionName("Delete")]
         public ActionResult ConfirmDelete(string Id)
         {
-            IngredientType recipeCategoryToDelete = context.Find(Id);
+            IngredientType ingredientTypeToDelete = context.Find(Id);
 
-            if (recipeCategoryToDelete == null) //if not found
+            if (ingredientTypeToDelete == null) //if not found
             {
                 return HttpNotFound();//issue an http error
             }
