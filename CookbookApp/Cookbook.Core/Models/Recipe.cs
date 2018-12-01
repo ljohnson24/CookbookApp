@@ -42,6 +42,5 @@ namespace Cookbook.Core.Models
         public string instruction9 { get; set; }
         public string instruction10 { get; set; }
         
-
     }
 }
