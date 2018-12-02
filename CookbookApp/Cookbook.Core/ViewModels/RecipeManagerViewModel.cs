@@ -11,6 +11,7 @@ namespace Cookbook.Core.ViewModels
     {
         public Recipe recipe { set; get; }
         public IEnumerable<RecipeCategory> recipeCategories { get; set; }
+        public IEnumerable<IngredientType> ingredientTypes { get; set; }
 
     }
 }

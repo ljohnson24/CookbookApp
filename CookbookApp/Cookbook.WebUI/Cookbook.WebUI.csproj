@@ -204,6 +204,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientTypeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipeCategoryManagerController.cs" />
     <Compile Include="Controllers\RecipeManagerController.cs" />
@@ -288,6 +289,11 @@
     <Content Include="Views\RecipeCategoryManager\Create.cshtml" />
     <Content Include="Views\RecipeCategoryManager\Delete.cshtml" />
     <Content Include="Views\RecipeCategoryManager\Edit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\IngredientType\Index.cshtml" />
+    <Content Include="Views\IngredientType\Create.cshtml" />
+    <Content Include="Views\IngredientType\Edit.cshtml" />
+    <Content Include="Views\IngredientType\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
