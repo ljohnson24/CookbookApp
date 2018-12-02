@@ -13,7 +13,7 @@ namespace Cookbook.DataAccess.SQL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812010151097_initial"; }
+            get { return "201812012253389_initial"; }
         }
         
         string IMigrationMetadata.Source

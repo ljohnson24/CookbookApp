@@ -35,8 +35,8 @@ namespace Cookbook.DataAccess.SQL
             if(context.Entry(t).State == EntityState.Detached)
             {
                 dbSet.Attach(t);// attach object to entity framework
-                dbSet.Remove(t);
             }
+            dbSet.Remove(t);
         }
 
         public T Find(string Id)

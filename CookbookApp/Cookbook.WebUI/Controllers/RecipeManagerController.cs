@@ -103,6 +103,7 @@ namespace Cookbook.WebUI.Controllers
                     recipeToEdit.Image = recipe.Id + Path.GetExtension(file.FileName);//sets recipe image to prefix(recipeid) plus file name ext
                     file.SaveAs(Server.MapPath("//Content/RecipeImages//") + recipeToEdit.Image);//saves the photo to the disk
                 }
+                recipeToEdit.Name = recipe.Name;
                 recipeToEdit.Category = recipe.Category;
                 recipeToEdit.Description = recipe.Description;
                 recipeToEdit.ServingSize = recipe.ServingSize;

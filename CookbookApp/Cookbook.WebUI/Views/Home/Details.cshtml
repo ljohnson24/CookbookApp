@@ -8,9 +8,25 @@
     <div class="col-md-2">
         <img clase ="img-responsive" src="~/Content/RecipeImages/@Model.Image"/>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-10">
         <dl class="dl-horizontal">
-            
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ServingSize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ServingSize)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Calories)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Calories)
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
@@ -18,23 +34,6 @@
             <dd>
                 @Html.DisplayFor(model => model.Description)
             </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Category)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Category)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>
-
         </dl>
     </div>
     </div>
