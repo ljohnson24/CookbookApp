@@ -1,5 +1,6 @@
 ﻿using Cookbook.Core.Contracts;
 using Cookbook.Core.Models;
+using Cookbook.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,24 @@ namespace Cookbook.WebUI.Controllers
             context = recipeContext;//initializes inmemory context
             recipeCategories = recipeCategoryContext;
         }
-        public ActionResult Index()
+        public ActionResult Index(string Category = null)
         {
-            List<Recipe> recipe = context.Collection().ToList();
+            List<Recipe> recipes;
+            List<RecipeCategory> categories = recipeCategories.Collection().ToList();
 
-            return View(recipe);
+            if (Category == null)
+            {
+                recipes=context.Collection().ToList();
+            }
+            else
+            {
+                recipes = context.Collection().Where(p => p.Category == Category).ToList();
+            }
+
+            RecipeListViewModel model = new RecipeListViewModel();
+            model.recipes = recipes;
+            model.recipeCategories = categories;
+            return View(model);
         }
 
         public ActionResult Details(string Id)
