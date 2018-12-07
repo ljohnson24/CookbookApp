@@ -294,6 +294,7 @@
     <Content Include="Views\IngredientType\Create.cshtml" />
     <Content Include="Views\IngredientType\Edit.cshtml" />
     <Content Include="Views\IngredientType\Delete.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
