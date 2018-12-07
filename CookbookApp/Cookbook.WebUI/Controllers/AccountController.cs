@@ -17,16 +17,17 @@ namespace Cookbook.WebUI.Controllers
 
             if (!string.IsNullOrEmpty(username))
             {
-                return Redirect("~" + username);
+                return Redirect("~/" + username);
             }
             
             return View();
         }
         //post:account/creataccount
-        //[HttpPost]
-        //public ActionResult CreatAccount(UserViewModel model, HttpPostedFileBase file)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult CreatAccount(UserViewModel model, HttpPostedFileBase file)
+        {
+
+            return View();
+        }
     }
 }
