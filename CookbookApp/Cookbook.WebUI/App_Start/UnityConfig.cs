@@ -49,6 +49,12 @@ namespace Cookbook.WebUI
             container.RegisterType<IRepository<Recipe>, SQLRepository<Recipe>>();
             container.RegisterType<IRepository<RecipeCategory>, SQLRepository<RecipeCategory>>();
             container.RegisterType<IRepository<IngredientType>, SQLRepository<IngredientType>>();
+            container.RegisterType<IRepository<Friend>, SQLRepository<Friend>>();
+            container.RegisterType<IRepository<Messenger>, SQLRepository<Messenger>>();
+            container.RegisterType<IRepository<Online>, SQLRepository<Online>>();
+            container.RegisterType<IRepository<User>, SQLRepository<User>>();
+            container.RegisterType<IRepository<Wall>, SQLRepository<Wall>>();
+                
         }
     }
 }
