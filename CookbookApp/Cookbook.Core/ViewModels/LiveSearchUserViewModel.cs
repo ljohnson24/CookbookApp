@@ -12,18 +12,6 @@ namespace Cookbook.Core.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
-
-        public LiveSearchUserViewModel()
-        {
-
-        }
-
-        public LiveSearchUserViewModel(LiveSearchUserViewModel user)
-        {
-            UserId = user.UserId;
-            FirstName = user.Username;
-            LastName = user.LastName;
-            Username = user.Username;
-        }
+        
     }
 }

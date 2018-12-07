@@ -48,7 +48,7 @@
     <Compile Include="Models\Converter.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\IngredientType.cs" />
-    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Online.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeCategory.cs" />
@@ -58,8 +58,10 @@
     <Compile Include="ViewModels\FriendRequestViewModel.cs" />
     <Compile Include="ViewModels\LiveSearchUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
     <Compile Include="ViewModels\RecipeListViewModel.cs" />
     <Compile Include="ViewModels\RecipeManagerViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\WallViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

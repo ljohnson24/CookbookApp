@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Cookbook.Core.ViewModels
 {
-    public class FriendRequestViewModel
+    public class UserViewModel
     {
-        public string User1 { get; set; }
-        public string User2 { get; set; }
-        public bool Active { get; set; }
-        
+        public User user { get; set; }
     }
 }
