@@ -1,6 +1,5 @@
 using Cookbook.Core.Contracts;
 using Cookbook.Core.Models;
-using Cookbook.DataAccess.InMemory;
 using Cookbook.DataAccess.SQL;
 using System;
 

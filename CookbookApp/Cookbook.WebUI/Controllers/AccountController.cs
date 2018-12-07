@@ -16,17 +16,17 @@ namespace Cookbook.WebUI.Controllers
         IRepository<User> userContext;
         IRepository<Friend> friendContext;
         IRepository<Messenger> messageContext;
-        IRepository<Online> onlineContext;
+        //IRepository<Online> onlineContext;
         IRepository<Wall> wallContext;
 
         //constructor
         public AccountController(IRepository<User> user, IRepository<Friend> friend,
-            IRepository<Messenger>message, IRepository<Online> online,IRepository<Wall> wall)
+            IRepository<Messenger>message, IRepository<Wall> wall)
         {
             userContext = user;
             friendContext = friend;
             messageContext = message;
-            onlineContext = online;
+            //onlineContext = online;
             wallContext = wall;
         }
         // GET: Account

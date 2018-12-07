@@ -8,7 +8,6 @@ using Cookbook.Core;
 using Cookbook.Core.Contracts;
 using Cookbook.Core.Models;
 using Cookbook.Core.ViewModels;
-using Cookbook.DataAccess.InMemory;
 
 namespace Cookbook.WebUI.Controllers
 {

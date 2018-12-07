@@ -206,6 +206,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientTypeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RecipeCategoryManagerController.cs" />
     <Compile Include="Controllers\RecipeManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -299,6 +300,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\RecipeImages\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -318,17 +320,9 @@
       <Project>{9c99c4c5-5b5d-4df7-873a-aa1e2b1f618c}</Project>
       <Name>Cookbook.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cookbook.DataAccess.InMemory\Cookbook.DataAccess.InMemory.csproj">
-      <Project>{e281a462-13e7-407f-b750-c27c748c282e}</Project>
-      <Name>Cookbook.DataAccess.InMemory</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Cookbook.DataAccess.SQL\Cookbook.DataAccess.SQL.csproj">
       <Project>{d33147c9-e2fc-4dbe-a046-d2b9091db3a4}</Project>
       <Name>Cookbook.DataAccess.SQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cookbook.Services\Cookbook.Services.csproj">
-      <Project>{3457571f-138e-430e-92b1-53a69adccd33}</Project>
-      <Name>Cookbook.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
