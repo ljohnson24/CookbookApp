@@ -20,6 +20,7 @@ namespace Cookbook.DataAccess.SQL
         public DbSet<Messenger> Message { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Wall> Wall { get; set; }
+        public DbSet<Online> Online { get; set; }
         
     }
 }
