@@ -29,7 +29,7 @@ namespace Cookbook.DataAccess.SQL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         FirstName = c.String(),
-                        LstName = c.String(),
+                        LastName = c.String(),
                         EmailAddress = c.String(),
                         Username = c.String(),
                         Password = c.String(),

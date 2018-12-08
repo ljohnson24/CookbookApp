@@ -212,11 +212,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812010114434_initial.cs" />
-    <Compile Include="Migrations\201812010114434_initial.Designer.cs">
-      <DependentUpon>201812010114434_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -324,11 +319,6 @@
       <Project>{d33147c9-e2fc-4dbe-a046-d2b9091db3a4}</Project>
       <Name>Cookbook.DataAccess.SQL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812010114434_initial.resx">
-      <DependentUpon>201812010114434_initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

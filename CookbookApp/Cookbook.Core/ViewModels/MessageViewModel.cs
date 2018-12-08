@@ -10,5 +10,11 @@ namespace Cookbook.Core.ViewModels
     public class MessageViewModel
     {
         public Messenger Message { get; set; }
+
+        public MessageViewModel() { }
+        public MessageViewModel(Messenger message)
+        {
+            Message = message;
+        }
     }
 }

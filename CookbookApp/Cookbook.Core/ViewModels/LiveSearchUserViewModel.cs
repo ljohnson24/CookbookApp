@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cookbook.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,19 @@ namespace Cookbook.Core.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
+
+        public LiveSearchUserViewModel()
+        {
+
+        }
+        public LiveSearchUserViewModel(User user)
+        {
+            UserId = user.Id;
+            FirstName = user.FirstName;
+            LastName = user.LastName;
+            Username = user.Username;
+        }
+        
         
     }
 }
