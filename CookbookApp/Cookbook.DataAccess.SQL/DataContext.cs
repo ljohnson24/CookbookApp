@@ -16,9 +16,9 @@ namespace Cookbook.DataAccess.SQL
         public DbSet<Recipe> Recipe { get; set; }
         public DbSet<RecipeCategory> RecipeCategories { get; set; }
         public DbSet<IngredientType> IngredientTypes { get; set; }
-        public DbSet<Friend> Friend { get; set; }
-        public DbSet<Messenger> Message { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<Friend> Friends { get; set; }
+        public DbSet<Messenger> Messages { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Wall> Wall { get; set; }
         public DbSet<Online> Online { get; set; }
         
