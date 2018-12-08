@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.DataAccess.InMemor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.WebUI", "Cookbook.WebUI\Cookbook.WebUI.csproj", "{50824BB8-7534-423C-BECA-E2DBB782E936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook", "..\..\..\..\Desktop\Cookbook - Copy\Cookbook\Cookbook\Cookbook.csproj", "{F9D883DC-ED01-489F-AC78-17AD411AEA60}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50824BB8-7534-423C-BECA-E2DBB782E936}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9D883DC-ED01-489F-AC78-17AD411AEA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9D883DC-ED01-489F-AC78-17AD411AEA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9D883DC-ED01-489F-AC78-17AD411AEA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9D883DC-ED01-489F-AC78-17AD411AEA60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

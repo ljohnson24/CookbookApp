@@ -1,195 +1,195 @@
-﻿//using Cookbook.Core.ViewModels;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
+﻿using Cookbook.Core.Models;
+using Cookbook.Core.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
-//namespace Cookbook.WebUI.Controllers
-//{
-//    public class ProfileController : Controller
-//    {
+namespace Cookbook.Controllers
+{
+    public class ProfileController : Controller
+    {
+        // GET: /
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-//        List<LiveSearchUserViewModel> usernames;
-//        // GET: /
-//        public ActionResult Index()
-//        {
-//            return View();
-//        }
+        // POST: Profile/LiveSearch
+        [HttpPost]
+        public JsonResult LiveSearch(string searchVal)
+        {
+            // Init db
+            //Db db = new Db();
 
-//        // POST: Profile/LiveSearch
-//        [HttpPost]
-//        public JsonResult LiveSearch(string searchVal)
-//        {
-            
-//            // Create list
-//            List<LiveSearchUserVM> usernames = db.Users.Where(x => x.Username.Contains(searchVal) && x.Username != User.Identity.Name).ToArray().Select(x => new LiveSearchUserVM(x)).ToList();
+            // Create list
+            List<LiveSearchUserViewModel> usernames = db.Users.Where(x => x.Username.Contains(searchVal) && x.Username != User.Identity.Name).ToArray().Select(x => new LiveSearchUserViewModel(x)).ToList();
 
-//            // Return json
-//            return Json(usernames);
-//        }
+            // Return json
+            return Json(usernames);
+        }
 
-//        // POST: Profile/AddFriend
-//        [HttpPost]
-//        public void AddFriend(string friend)
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/AddFriend
+        [HttpPost]
+        public void AddFriend(string friend)
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user's id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user's id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Get friend to be id
-//            UserDTO userDTO2 = db.Users.Where(x => x.Username.Equals(friend)).FirstOrDefault();
-//            int friendId = userDTO2.Id;
+            // Get friend to be id
+            User userDTO2 = db.Users.Where(x => x.Username.Equals(friend)).FirstOrDefault();
+            string friendId = userDTO2.Id;
 
-//            // Add DTO
+            // Add DTO
 
-//            FriendDTO friendDTO = new FriendDTO();
+            Friend friendDTO = new Friend();
 
-//            friendDTO.User1 = userId;
-//            friendDTO.User2 = friendId;
-//            friendDTO.Active = false;
+            friendDTO.User1 = userId;
+            friendDTO.User2 = friendId;
+            friendDTO.Active = false;
 
-//            db.Friends.Add(friendDTO);
+            db.Friends.Add(friendDTO);
 
-//            db.SaveChanges();
-//        }
+            db.SaveChanges();
+        }
 
-//        // POST: Profile/DisplayFriendRequests
-//        [HttpPost]
-//        public JsonResult DisplayFriendRequests()
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/DisplayFriendRequests
+        [HttpPost]
+        public JsonResult DisplayFriendRequests()
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Create list of fr
-//            List<FriendRequestVM> list = db.Friends.Where(x => x.User2 == userId && x.Active == false).ToArray().Select(x => new FriendRequestVM(x)).ToList();
+            // Create list of fr
+            List<FriendRequestViewModel> list = db.Friends.Where(x => x.User2 == userId && x.Active == false).ToArray().Select(x => new FriendRequestViewModel(x)).ToList();
 
-//            // Init list of users
+            // Init list of users
 
-//            List<UserDTO> users = new List<UserDTO>();
+            List<User> users = new List<User>();
 
-//            foreach (var item in list)
-//            {
-//                var user = db.Users.Where(x => x.Id == item.User1).FirstOrDefault();
-//                users.Add(user);
-//            }
+            foreach (var item in list)
+            {
+                var user = db.Users.Where(x => x.Id == item.User1).FirstOrDefault();
+                users.Add(user);
+            }
 
-//            // Return json
-//            return Json(users);
-//        }
+            // Return json
+            return Json(users);
+        }
 
-//        // POST: Profile/AcceptFriendRequest
-//        [HttpPost]
-//        public void AcceptFriendRequest(int friendId)
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/AcceptFriendRequest
+        [HttpPost]
+        public void AcceptFriendRequest(string friendId)
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Make friends
+            // Make friends
 
-//            FriendDTO friendDTO = db.Friends.Where(x => x.User1 == friendId && x.User2 == userId).FirstOrDefault();
+            Friend friendDTO = db.Friends.Where(x => x.User1 == friendId && x.User2 == userId).FirstOrDefault();
 
-//            friendDTO.Active = true;
+            friendDTO.Active = true;
 
-//            db.SaveChanges();
-//        }
+            db.SaveChanges();
+        }
 
-//        // POST: Profile/DeclineFriendRequest
-//        [HttpPost]
-//        public void DeclineFriendRequest(int friendId)
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/DeclineFriendRequest
+        [HttpPost]
+        public void DeclineFriendRequest(string friendId)
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Delete friend request
+            // Delete friend request
 
-//            FriendDTO friendDTO = db.Friends.Where(x => x.User1 == friendId && x.User2 == userId).FirstOrDefault();
+            Friend friendDTO = db.Friends.Where(x => x.User1 == friendId && x.User2 == userId).FirstOrDefault();
 
-//            db.Friends.Remove(friendDTO);
+            db.Friends.Remove(friendDTO);
 
-//            db.SaveChanges();
-//        }
+            db.SaveChanges();
+        }
 
-//        // POST: Profile/SendMessage
-//        [HttpPost]
-//        public void SendMessage(string friend, string message)
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/SendMessage
+        [HttpPost]
+        public void SendMessage(string friend, string message)
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Get friend id
-//            UserDTO userDTO2 = db.Users.Where(x => x.Username.Equals(friend)).FirstOrDefault();
-//            int userId2 = userDTO2.Id;
+            // Get friend id
+            User userDTO2 = db.Users.Where(x => x.Username.Equals(friend)).FirstOrDefault();
+            string userId2 = userDTO2.Id;
 
-//            // Save message
+            // Save message
 
-//            MessageDTO dto = new MessageDTO();
+            Messenger dto = new Messenger();
 
-//            dto.From = userId;
-//            dto.To = userId2;
-//            dto.Message = message;
-//            dto.DateSent = DateTime.Now;
-//            dto.Read = false;
+            dto.From = userId;
+            dto.To = userId2;
+            dto.Message = message;
+            dto.DateSent = DateTime.Now;
+            dto.Read = false;
 
-//            db.Messages.Add(dto);
-//            db.SaveChanges();
-//        }
+            db.Messages.Add(dto);
+            db.SaveChanges();
+        }
 
-//        // POST: Profile/DisplayUnreadMessages
-//        [HttpPost]
-//        public JsonResult DisplayUnreadMessages()
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/DisplayUnreadMessages
+        [HttpPost]
+        public JsonResult DisplayUnreadMessages()
+        {
+            // Init db
+            //Db db = new Db();
 
-//            // Get user id
-//            UserDTO userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
-//            int userId = userDTO.Id;
+            // Get user id
+            User userDTO = db.Users.Where(x => x.Username.Equals(User.Identity.Name)).FirstOrDefault();
+            string userId = userDTO.Id;
 
-//            // Create a list of unread messages
-//            List<MessageVM> list = db.Messages.Where(x => x.To == userId && x.Read == false).ToArray().Select(x => new MessageVM(x)).ToList();
+            // Create a list of unread messages
+            List<MessageViewModel> list = db.Messages.Where(x => x.To == userId && x.Read == false).ToArray().Select(x => new MessageViewModel(x)).ToList();
 
-//            // Make unread read
-//            db.Messages.Where(x => x.To == userId && x.Read == false).ToList().ForEach(x => x.Read = true);
-//            db.SaveChanges();
+            // Make unread read
+            db.Messages.Where(x => x.To == userId && x.Read == false).ToList().ForEach(x => x.Read = true);
+            db.SaveChanges();
 
-//            // Return json
-//            return Json(list);
-//        }
+            // Return json
+            return Json(list);
+        }
 
-//        // POST: Profile/UpdateWallMessage
-//        [HttpPost]
-//        public void UpdateWallMessage(int id, string message)
-//        {
-//            // Init db
-//            Db db = new Db();
+        // POST: Profile/UpdateWallMessage
+        [HttpPost]
+        public void UpdateWallMessage(string id, string message)
+        {
+            // Init db
+            //Db db = new //Db();
 
-//            // Update wall
-//            WallDTO wall = db.Wall.Find(id);
+            // Update wall
+            Wall wall = db.Wall.Find(id);
 
-//            wall.Message = message;
-//            wall.DateEdited = DateTime.Now;
+            wall.Message = message;
+            wall.DateEdited = DateTime.Now;
 
-//            db.SaveChanges();
-//        }
-//    }
-//}
+            db.SaveChanges();
+        }
+    }
+}
