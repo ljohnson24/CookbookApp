@@ -310,6 +310,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\RecipeImages\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
