@@ -61,10 +61,10 @@ namespace Cookbook.Core.Models
             const int VolumeRange = 200;
             const int AreaRange = 300;
 
-            static double[] ToBaseWeight = new double[6];
-            static double[] ToBaseLength = new double[8];
-            static double[] ToBaseVolume = new double[10];
-            static double[] ToBaseArea = new double[7];
+            static readonly double[] ToBaseWeight = new double[6];
+            static readonly double[] ToBaseLength = new double[8];
+            static readonly double[] ToBaseVolume = new double[10];
+            static readonly double[] ToBaseArea = new double[7];
 
 
             static UnitConverter()
